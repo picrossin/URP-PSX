@@ -16,7 +16,6 @@ namespace PSX
         //ScripstableRendererFeature is an abstract class, you need this method
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            fogPass.Setup(renderer.cameraColorTarget);
             renderer.EnqueuePass(fogPass);
         }
     }
@@ -40,7 +39,6 @@ namespace PSX
         
         Fog fog;
         Material fogMaterial;
-        RenderTargetIdentifier currentTarget;
     
         public FogPass(RenderPassEvent evt)
         {
@@ -76,15 +74,10 @@ namespace PSX
             CommandBufferPool.Release(cmd);
         }
     
-        public void Setup(in RenderTargetIdentifier currentTarget)
-        {
-            this.currentTarget = currentTarget;
-        }
-    
         void Render(CommandBuffer cmd, ref RenderingData renderingData)
         {
             ref var cameraData = ref renderingData.cameraData;
-            var source = currentTarget;
+            var source = renderingData.cameraData.renderer.cameraColorTargetHandle;
             int destination = TempTargetId;
     
             //getting camera width and height 

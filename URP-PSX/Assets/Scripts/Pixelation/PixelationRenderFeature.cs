@@ -16,7 +16,6 @@ namespace PSX
         //ScripstableRendererFeature is an abstract class, you need this method
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            pixelationPass.Setup(renderer.cameraColorTarget);
             renderer.EnqueuePass(pixelationPass);
         }
     }
@@ -37,7 +36,6 @@ namespace PSX
         
         Pixelation pixelation;
         Material pixelationMaterial;
-        RenderTargetIdentifier currentTarget;
     
         public PixelationPass(RenderPassEvent evt)
         {
@@ -73,15 +71,10 @@ namespace PSX
             CommandBufferPool.Release(cmd);
         }
     
-        public void Setup(in RenderTargetIdentifier currentTarget)
-        {
-            this.currentTarget = currentTarget;
-        }
-    
         void Render(CommandBuffer cmd, ref RenderingData renderingData)
         {
             ref var cameraData = ref renderingData.cameraData;
-            var source = currentTarget;
+            var source = renderingData.cameraData.renderer.cameraColorTargetHandle;
             int destination = TempTargetId;
     
             //getting camera width and height 
