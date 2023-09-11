@@ -1,0 +1,17 @@
+{
+    "name": "com.jadengoter.urp-psx",
+    "version": "0.1.0",
+    "displayName": "URP-PSX",
+    "description": "PSX retro graphics package for URP with Shadergraph in Unity",
+    "unity": "2022.3",
+    "documentationUrl": "https://github.com/picrossin/URP-PSX-Package",
+    "licensesUrl": "https://github.com/picrossin/URP-PSX-Package/blob/master/LICENSE",
+    "dependencies": {
+        "com.unity.render-pipelines.universal": "14.0.8"
+    },
+    "author": {
+        "name": "Jaden Goter",
+        "email": "jadengoter@gmail.com",
+        "url": "https://www.jadengoter.com"
+    }
+}
