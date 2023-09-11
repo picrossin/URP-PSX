@@ -12,9 +12,9 @@ namespace PSX
 
         protected Fog fog;
         
-        [Range(0,10)]
+        [Range(0,50)]
         [SerializeField] protected float fogDensity = 1.0f;
-        [Range(0,100)]
+        [Range(0,1000)]
         [SerializeField] protected float fogDistance = 10.0f;
         [Range(0,100)]
         [SerializeField] protected float fogNear = 1.0f;
@@ -30,6 +30,11 @@ namespace PSX
         [SerializeField] protected float noiseStrength = 0.05f;
         
         [SerializeField] protected Color fogColor;
+        [SerializeField] protected Color ambientColor;
+
+
+        public float getFogDistance => fogDistance;
+        public float setFogDistance(float value) => fogDistance = value;
         
         protected void Update()
         {
@@ -53,6 +58,7 @@ namespace PSX
             this.fog.noiseScale.value = this.noiseScale;
             this.fog.noiseStrength.value = this.noiseStrength;
             this.fog.fogColor.value = this.fogColor;
+            this.fog.ambientColor.value = this.ambientColor;
             
             
             //ACCESSING PARAMS 
