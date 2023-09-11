@@ -13,11 +13,14 @@ namespace PSX
             pixelationPass = new PixelationPass(RenderPassEvent.BeforeRenderingPostProcessing);
         }
 
-        //ScripstableRendererFeature is an abstract class, you need this method
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            pixelationPass.Setup(renderer.cameraColorTarget);
             renderer.EnqueuePass(pixelationPass);
+        }
+        
+        public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
+        {
+            pixelationPass.Setup(renderer.cameraColorTargetHandle);
         }
     }
     
