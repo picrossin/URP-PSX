@@ -1,4 +1,4 @@
-# WIP Update for URP-PSX for Unity 2022-2023 in package format
+# WIP Update for URP-PSX for Unity 2022-2023 in package format. Under construction!
 
 # URP-PSX
 
