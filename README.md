@@ -1,3 +1,5 @@
+# WIP Update for URP-PSX for Unity 2022-2023 in package format
+
 # URP-PSX
 
 Playstation 1 era retro graphics plugin optimized for Unity's Universal Rendering Pipeline with Shadergraph. The aim of this plugin was to use Unity's new pipeline to create NPR (non-photorealistic) PSX-style retro graphics with the shadergraph as the basis for materials and URP's render features as the basis for post processing effects.
